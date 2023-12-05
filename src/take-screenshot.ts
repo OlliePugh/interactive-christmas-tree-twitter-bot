@@ -4,7 +4,11 @@ const urlToOpen = "https://tree.ollieq.co.uk"; // Replace with the URL you want 
 
 const takeScreenshot = async (): Promise<Buffer> => {
   console.log("launch puppeteer");
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await puppeteer.launch({
+    headless: "new",
+    executablePath: "/usr/bin/chromium-browser",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
 
   await page.setViewport({ width: 1200, height: 2000 });
