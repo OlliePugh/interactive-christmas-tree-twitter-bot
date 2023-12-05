@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
-    "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
-    "tsc": "tsc",
+    "watch": "babel --watch src --out-dir lib --extensions '*.ts,*.tsx'",
+    "build": "tsc",
     "dev": "nodemon src/index.ts"
   },
   "author": "OlliePugh",
