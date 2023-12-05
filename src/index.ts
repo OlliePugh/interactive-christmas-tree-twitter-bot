@@ -32,8 +32,7 @@ const formatDateTime = (date: Date) => {
 
   return `${formattedDate} at ${formattedTime}`;
 };
-console.log(process.env.TWITTER_ACCESS_TOKEN);
-// TODO:  re add all items with a ts ignore?
+
 const client = new TwitterApi({
   //@ts-ignore
   appKey: process.env.TWITTER_API_KEY,
