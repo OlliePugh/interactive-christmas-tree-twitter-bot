@@ -17,6 +17,8 @@ const takeScreenshot = async (): Promise<Buffer> => {
 
   // Wait for the video element to be present
   await page.waitForSelector("video");
+  // reject cookies (skews analytics)
+  await page.click(".iubenda-cs-reject-btn");
 
   // Wait for 10 seconds (adjust as needed)
   console.log("waiting for video");
