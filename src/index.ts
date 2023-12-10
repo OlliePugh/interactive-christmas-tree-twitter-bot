@@ -3,6 +3,11 @@ import { TwitterApi, EUploadMimeType } from "twitter-api-v2";
 import axios from "axios";
 import Jimp from "jimp";
 import "dotenv/config";
+// import fs from "fs";
+
+// const saveImageToDisk = async (buffer: Buffer, filename: string) => {
+//   fs.writeFileSync(filename, buffer);
+// };
 
 const formatDateTime = (date: Date) => {
   const day = date.getDate();
@@ -75,8 +80,9 @@ const postTweet = async () => {
     baubleBuffer(3),
   ];
 
-  const uploadPromises = (await Promise.all(imagePromises)).map((x) =>
-    addMedia(x)
+  const uploadPromises = (await Promise.all(imagePromises)).map(
+    (x, index) => addMedia(x)
+    // saveImageToDisk(x, `image-${index}.png`)
   );
 
   const mediaIds = await Promise.all(uploadPromises);
